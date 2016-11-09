@@ -1,0 +1,9 @@
+{% block title%}Nueva Promoción{% endblock %}
+
+{% block content %}
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="save">Guardar</button>
+</form>
+{% endblock content %}
