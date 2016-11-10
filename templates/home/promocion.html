@@ -1,0 +1,55 @@
+{% extends 'home/index.html'%}
+
+
+{%block content%}
+
+<!--=====================
+          Content
+======================-->
+<section class="content gallery pad1">
+  <div class="container">
+    <div class="row">
+
+    {% for promo in object_list%}
+      <div class="grid_4">
+        <div class="gall_block">
+          <div class="maxheight">
+            <a href="{{MEDIA_URL}}{{promo.imagen}}" class="gall_item"><img src="images/page2_img1.jpg" alt="" style="width: 370px; height: 305px"></a>
+            <div class="gall_bot">
+            <div class="text1"><a href="#">{{promo.nombre}}</a></div>
+            {{promo.descripcion}}
+            <br>
+            <a href="#" class="btn">more</a></div>
+          </div>
+        </div>
+      </div>
+
+      {%endfor%}
+
+
+    </div>
+  </div>
+</section>
+<!--==============================
+              footer
+=================================-->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="grid_12">  
+        <div class="socials">
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-google-plus"></a>
+          <a href="#" class="fa fa-pinterest"></a>
+        </div>
+        <div class="copyright"><span class="brand">Bliss </span> &copy; <span id="copyright-year"></span> | <a href="#">Privacy Policy</a> <div>Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</footer> 
+</body>
+{%endblock%}
+</html>
+

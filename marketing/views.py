@@ -22,7 +22,16 @@ class ListarHome(ListView):
 	
 	def get_context_data(self, **kwargs):
 		context = super(ListarHome, self).get_context_data(**kwargs)
-		context['promocion'] = Promocion.objects.all()
+		context['promocion'] = Promocion.objects.all()[:3]
 		return context
 
-	
+
+class ViewMenu(ListView):
+	template_name='home/menu.html'
+	model = Producto
+
+class ViewPromo(ListView):
+	template_name='home/menu.html'
+	model = Promocion
+
+

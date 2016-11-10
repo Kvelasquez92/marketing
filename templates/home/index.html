@@ -57,18 +57,17 @@
       <div class="row">
         <div class="grid_12">
         <h1>
-          <a href="index.html">
-            Restaurante
+          <a href="{%url 'promocion:index'%}" alt="Logo alt">
+            <img src="{%static 'images/logo.png'%}">
           </a>
         </h1>  
           <div class="navigation">
             <nav>
               <ul class="sf-menu">
-               <li class="current"><a href="index.html">Inicio</a></li>
-               <li><a href="index-1.html">Menu</a></li>
-               <!--<li><a href="index-2.html">reservation</a></li>-->
-               <!--<li><a href="index-3.html">blog</a></li>-->
-               <li><a href="index-4.html">Acerca de</a></li>
+               <li><a href="{%url 'promocion:index'%}">Inicio</a></li>
+               <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
+               <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
+               <li><a href="#">Acerca de</a></li>
              </ul>
             </nav>        
             <div class="clear"></div>
@@ -82,7 +81,7 @@
 <!--=====================
           Content
 ======================-->
-
+{% block content%}
 
 
 <!-- Inicio de productos -->
@@ -90,15 +89,19 @@
   <div class="container">
     <div class="row">
 
+    <div class="grid_12">
+      <h2>Productos </h2>
+    </div> 
+
     {%for producto in object_list%}
         <div class="grid_4">
           <div class="banner ">
             <div class="gall_block">
-              <img src='{{producto.imagen}}' alt="">
+              <img src="{{producto.imagen.url}}" alt="" width= '370px' height= '305px'>
               <div class="bann_capt  bn__1">
                 <div class="maxheight">
-                  <img src="" alt="">
-                    <div class="bann_title">{{producto.nombre}} <br> bla bla bla bla <br> a solo {{producto.precio}}</div>
+                  <img src="{%static 'images/icon1.png'%}" alt="">
+                    <div class="bann_title">{{producto.nombre}} <br> {{producto.descripcion}}</div>
                 </div>
               </div>
             </div>
@@ -106,21 +109,29 @@
       </div>
     {%endfor%}
 
+    <div class="grid_12">
+      <h2>Promociones </h2>
+    </div> 
+
     {%for promo in promocion%}
         <div class="grid_4">
           <div class="banner ">
             <div class="gall_block">
-              <img src="{% static 'images/page1_img3.jpg'%}" alt="">
+              <img src="{{promo.imagen.url}}" alt="" width= '370px' height= '305px'>
               <div class="bann_capt  bn__1">
                 <div class="maxheight">
-                  <img src="{{promo.imagen}}" alt="">
-                    <div class="bann_title">{{promo.nombre}} <br> bla bla bla bla <br> a solo {{promo.precio}}</div>
+                  <img src="{%static 'images/icon1.png'%}" alt="">
+                    <div class="bann_title">{{promo.nombre}} <br> {{promo.descripcion}}</div>
                 </div>
               </div>
             </div>
         </div>
       </div>
     {%endfor%}
+
+
+    <div class="grid_12">
+    </div> 
 
 
 <!-- Fin de productos y promociones -->
@@ -169,6 +180,8 @@
     </div>
   </div>
 </section>
+
+{% endblock%}
 <!--==============================
               footer
 =================================-->
@@ -182,12 +195,13 @@
           <a href="#" class="fa fa-google-plus"></a>
           <a href="#" class="fa fa-pinterest"></a>
         </div>
-        <div class="copyright"><span class="brand">Restaurante </span> &copy; <span id="copyright-year"></span> | <a href="#">Privacy Policy</a> <div>Website designed by Alexander</div>
+        <div class="copyright"><span class="brand">Restaurante </span> &copy; <span id="copyright-year"></span> |  <div>Website designed by Alexander</div>
         </div>
       </div>
     </div>
   </div> 
 </footer> 
 </body>
+
 </html>
 
