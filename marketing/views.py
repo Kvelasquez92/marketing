@@ -5,6 +5,9 @@ from marketing.forms import PromoForm
 
 # Create your views here.
 
+def acercade(request):
+    return render(request, 'marketing/contacto.html')
+
 class CrearPromocion(CreateView):
     form_class = PromoForm
     template_name = 'marketing/promo_form.html'
