@@ -12,3 +12,9 @@ class CrearPromocion(CreateView):
     form_class = PromoForm
     template_name = 'marketing/promo_form.html'
     success_url = reverse_lazy('')
+
+
+def index(request):
+	return render(request, 'home/index.html')
+
+	
