@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
+
 from marketing.forms import PromoForm
+from .models import Promocion, Producto
 
 # Create your views here.
 
@@ -14,7 +16,13 @@ class CrearPromocion(CreateView):
     success_url = reverse_lazy('')
 
 
-def index(request):
-	return render(request, 'home/index.html')
+class ListarHome(ListView):
+	template_name='home/index.html'
+	model = Producto
+	
+	def get_context_data(self, **kwargs):
+		context = super(ListarHome, self).get_context_data(**kwargs)
+		context['promocion'] = Promocion.objects.all()
+		return context
 
 	

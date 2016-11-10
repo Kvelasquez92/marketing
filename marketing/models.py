@@ -7,6 +7,7 @@ class Producto(models.Model):
     precio = models.FloatField()
     existencias = models.IntegerField()
     imagen = models.ImageField(upload_to='productos', blank=False, null=False)
+    descripcion = models.TextField(max_length=200, blank= True, null=True)
 
     def __str__(self):
         return self.nombre
@@ -17,6 +18,7 @@ class Promocion(models.Model):
     descuento = models.FloatField()
     imagen = models.ImageField(upload_to='promociones', blank=False, null=False)
     productos = models.ManyToManyField(Producto, blank=False)
+    descripcion = models.TextField(max_length=200, blank = True, null=True)
 
     def __str__(self):
         return self.nombre

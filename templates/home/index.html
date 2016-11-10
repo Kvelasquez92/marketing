@@ -82,93 +82,48 @@
 <!--=====================
           Content
 ======================-->
+
+
+
+<!-- Inicio de productos -->
 <section class="content">
   <div class="container">
     <div class="row">
-      <div class="grid_4">
-        <div class="banner ">
-      <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__1">
-            <div class="maxheight">
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Esta promocion bla bla bla bla</div>
+
+    {%for producto in object_list%}
+        <div class="grid_4">
+          <div class="banner ">
+            <div class="gall_block">
+              <img src='{{producto.imagen}}' alt="">
+              <div class="bann_capt  bn__1">
+                <div class="maxheight">
+                  <img src="" alt="">
+                    <div class="bann_title">{{producto.nombre}} <br> bla bla bla bla <br> a solo {{producto.precio}}</div>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>
         </div>
       </div>
-      <div class="grid_4">
-        <div class="banner ">
-      <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__3">
-            <div class="maxheight">
-            
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Happy Hours <br> &amp; Offers</div>
-              <a href="#">more</a>
+    {%endfor%}
+
+    {%for promo in promocion%}
+        <div class="grid_4">
+          <div class="banner ">
+            <div class="gall_block">
+              <img src="{% static 'images/page1_img3.jpg'%}" alt="">
+              <div class="bann_capt  bn__1">
+                <div class="maxheight">
+                  <img src="{{promo.imagen}}" alt="">
+                    <div class="bann_title">{{promo.nombre}} <br> bla bla bla bla <br> a solo {{promo.precio}}</div>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>
         </div>
       </div>
-      <div class="grid_4">
-        <div class="banner ">
-		  <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__1">
-            <div class="maxheight">
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Happy Hours <br> &amp; Offers</div>
-              <a href="#">more</a>
-            </div>
-          </div>
-		  </div>
-        </div>
-      </div>
-      <div class="grid_4">
-        <div class="banner ">
-      <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__3">
-            <div class="maxheight">
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Happy Hours <br> &amp; Offers</div>
-              <a href="#">more</a>
-            </div>
-          </div>
-      </div>
-        </div>
-      </div>
-            <div class="grid_4">
-        <div class="banner ">
-      <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__1">
-            <div class="maxheight">
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Happy Hours <br> &amp; Offers</div>
-              <a href="#">more</a>
-            </div>
-          </div>
-      </div>
-        </div>
-      </div>
-            <div class="grid_4">
-        <div class="banner ">
-      <div class="gall_block">
-          <img src="{% static 'images/page1_img3.jpg'%}" alt="">
-          <div class="bann_capt  bn__3">
-            <div class="maxheight">
-              <img src="{%static 'images/icon3.png'%}" alt="">
-              <div class="bann_title">Happy Hours <br> &amp; Offers</div>
-              <a href="#">more</a>
-            </div>
-          </div>
-      </div>
-        </div>
-      </div>
+    {%endfor%}
+
+
+<!-- Fin de productos y promociones -->
       <div class="grid_4">
         <div class="block1">
           <div class="count">1.</div>
