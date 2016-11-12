@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actualizando Imagen</title>
+    <style>
+    table {
+      border: 1px solid black;
+      width: 50%;
+    }
+
+    thead, td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    thead {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn {
+      background-color: #663399;
+      border: none;
+      color: white;
+      padding: 8px 30px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <center>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>Imagen</td>
+            <td>Seleccionar Imagen</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="{{ form.imagen.value.url }}"><img src="{{ form.imagen.value.url }}" style="width:150px;height:140px;"></a></td>
+            <td>{{ form.imagen }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <button class = "btn btn-primary" type="submit" name="button">Guardar</button>
+          </div>
+        </div>
+    </center>
+  </form>
+  </body>
+</html>

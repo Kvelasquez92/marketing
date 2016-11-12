@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{% static 'css/touchTouch.css'%}">
 <script src="{% static 'js/jquery.js'%}"></script>
 <script src="{% static 'js/jquery-migrate-1.1.1.js'%}"></script>
-<script src="{% static 'js/script.js'%}"></script> 
+<script src="{% static 'js/script.js'%}"></script>
 <script src="{% static 'js/superfish.js'%}"></script>
 <script src="{% static 'js/jquery.equalheights.js'%}"></script>
 <script src="{% static 'js/jquery.mobilemenu.js'%}"></script>
@@ -29,7 +29,7 @@
   $('#stuck_container').tmStickUp({});
   $('.gallery .gall_item').touchTouch();
 
-  }); 
+  });
 </script>
 <!--[if lt IE 9]>
  <div style=' clear: both; text-align:center; position: relative;'>
@@ -60,23 +60,41 @@
           <a href="{%url 'promocion:index'%}" alt="Logo alt">
             <img src="{%static 'images/logo.png'%}">
           </a>
-        </h1>  
+        </h1>
           <div class="navigation">
             <nav>
               <ul class="sf-menu">
-               <li><a href="{%url 'promocion:index'%}">Inicio</a></li>
-               <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
-               <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
-               <li><a href="#">Acerca de</a></li>
+                <li><a href="{%url 'promocion:index'%}">Inicio</a></li>
+                {% if user.is_authenticated %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Productos<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
+                    <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown" style="width:100px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Operaciones<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{%url 'promocion:crear_promocion'%}">Crear promoción</a></li>
+                    <li><a href="{%url 'promocion:receta_listar'%}">Imagenes recetas</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url 'logout' %}">Salir</a></li>
+                {% else %}
+                  <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
+                  <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
+                  <li><a href="{% url 'promocion:acerca_de' %}">Acerca de</a></li>
+                {% endif %}
              </ul>
-            </nav>        
+            </nav>
             <div class="clear"></div>
           </div>
         </div>
       </div>
     </div>
-  </section> 
-</header>        
+  </section>
+</header>
 
 <!--=====================
           Content
@@ -89,10 +107,6 @@
   <div class="container">
     <div class="row">
 
-    <div class="grid_12">
-      <h2>Productos </h2>
-    </div> 
-
 
       <div class="grid_4">
         <div class="banner">
@@ -103,7 +117,7 @@
               <img src="{%static 'images/icon1.png'%}" alt="">
               <div class="bann_title">La mejor comida italiana, donde no se podra encontrar
               en otra parte</div>
-             
+
             </div>
           </div>
         </div>
@@ -116,7 +130,7 @@
             <div class="maxheight">
               <img src="{%static 'images/icon2.png'%}" alt="">
               <div class="bann_title">Ademas de ofrecer comida variada, ofrecemos un gran servicio</div>
-              
+
             </div>
           </div>
           <img src="{%static 'images/page1_img2.jpg'%}" alt="">
@@ -132,11 +146,14 @@
               <img src="{%static 'images/icon3.png'%}" alt="">
               <div class="bann_title">En cuanto a ofertas se refieren, nuestro restaurante, da las mejores
               promociones</div>
-             
+
             </div>
           </div>
       </div>
         </div>
+      </div>
+      <div class="grid_12">
+        <h2>Productos </h2>
       </div>
 
     {%for producto in object_list%}
@@ -157,7 +174,7 @@
 
     <div class="grid_12">
       <h2>Promociones </h2>
-    </div> 
+    </div>
 
     {%for promo in promocion%}
         <div class="grid_4">
@@ -177,34 +194,11 @@
 
 
     <div class="grid_12">
-    </div> 
+    </div>
 
 
 <!-- Fin de productos y promociones -->
-      <div class="grid_4">
-        <div class="block1">
-          <div class="count">1.</div>
-          Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo. Praesent faucibus malesuada faucibus. Donec laeet metus id laoreet malesuadarem ipsum dolor 
-          <br>
-          <a href="#" class="btn">more</a>
-        </div>
-      </div>
-      <div class="grid_4">
-        <div class="block1">
-          <div class="count">2.</div>
-          Dasamus at magna non nunc tristique rhoncus. Kliquam nibh ante, egestas id dictum a, commodo. Praesent faucibus malesuada faucibus. Donec laeet metus id laoreet malesuadarem ipsumer 
-          <br>
-          <a href="#" class="btn">more</a>
-        </div>
-      </div>
-      <div class="grid_4">
-        <div class="block1">
-          <div class="count">3.</div>
-          Tervamus at magna non nunc tristique rhoncus. Oliquam nibh ante, egestas id dictum a, commodo. Iraesent faucibus malesuada faucibus. Donec laeet etus id laoreet malesuadarem ipsolo 
-          <br>
-          <a href="#" class="btn">more</a>
-        </div>        
-      </div>
+
       <div class="grid_12">
         <div class="box">
           <div class="row">
@@ -212,12 +206,10 @@
               <h2>Welcome</h2>
               <p>Post about this <strong class="color1"><a href="http://blog.templatemonster.com/free-website-templates/" rel="nofollow">freebie</a></strong> will tell all you need to know about it. Need a good choice of <strong class="color1"><a href="http://www.templatemonster.com/properties/topic/food-restaurant/" rel="nofollow">themes</a></strong>? Visit TemplateMonster’s website.</p>
               Aliquam nibh e,estas id dictum a, commodo. Praesent faucibus malesuada faucibusonec laeet metus id laoreet malesuadarem ipsum dolor sit <br>
-              <a href="#" class="btn">more</a>
             </div>
             <div class="grid_5">
               <h2>Feel the Savor of Life</h2>
               Dervamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo. Praesent faucibus malesuada ucibus. Donec laeet metus id laoreet malesuadarem ipsum dosit ametctetur adipiscing elit. Nullam consectetur orci sed nulla facilisis consequat. Curabitur vel lorem sit amet nulla ullamcorper fermentum. <br>
-              <a href="#" class="btn">more</a>
             </div>
           </div>
         </div>
@@ -234,20 +226,22 @@
 <footer id="footer">
   <div class="container">
     <div class="row">
-      <div class="grid_12">  
+      <div class="grid_12">
         <div class="socials">
           <a href="#" class="fa fa-twitter"></a>
           <a href="#" class="fa fa-facebook"></a>
           <a href="#" class="fa fa-google-plus"></a>
-          <a href="#" class="fa fa-pinterest"></a>
+          <a href="{% url 'login' %}" class="fa fa-pinterest">Entrar</a>
         </div>
-        <div class="copyright"><span class="brand">Restaurante </span> &copy; <span id="copyright-year"></span> |  <div>Website designed by Alexander</div>
+          <center>
+          </center>
+        <div class="copyright">
+          <span class="brand">Restaurante </span> &copy; <span id="copyright-year"></span> |  <div>Website designed by Kevin y Alexander</div>
         </div>
       </div>
     </div>
-  </div> 
-</footer> 
+  </div>
+</footer>
 </body>
 
 </html>
-

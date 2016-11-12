@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles%}
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -14,7 +14,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-     <title>Multipager Template- Travelic </title>
+     <title>Sobre Nosotros </title>
     <!--REQUIRED STYLE SHEETS-->
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
@@ -33,7 +33,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]--></head>
-<body>
+<body method="post" enctype="multipart/form-data">
      <!-- NAV SECTION -->
          <div class="navbar navbar-inverse navbar-fixed-top">
 
@@ -44,14 +44,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">YOUR LOGO</a>
+                  <a href="{%url 'promocion:index'%}" alt="Logo alt"><img src="{%static 'images/logo.png'%}"></a>
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">PACKAGE</a></li>
-                     <li><a href="#">GALLERY</a></li>
-                    <li><a href="contacto.html">¿Quiénes somos?</a></li>
+                    <li><a href="{%url 'promocion:index'%}">Inicio</a></li>
+                    <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
+                     <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
+                    <li><a href="{% url 'promocion:acerca_de' %}">Acerca de</a></li>
                 </ul>
             </div>
 
@@ -63,81 +63,98 @@
 
     <!--CONTACT SECTION-->
     <section  id="services-sec">
+      <div class="row" style="text-align:center;">
+        <img src="{%static 'img/pizzeria.jpg'%}" alt="" width= '1209px' height= '350px'/>
+      </div>
         <div class="container">
             <div class="row ">
                 <div class="text-center g-pad-bottom">
                    <div class="col-md-4 col-sm-4 alert-info">
-                            <h4><i class="fa fa-laptop fa-2x" ></i>&nbsp;Our Location </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
+                            <h4><i class="fa fa-laptop fa-2x" ></i>&nbsp;Nuestra Ubicación </h4>
+                            <ul>
+                              <li>Paseo Cayalá</li>
+                              <li>Condado Concepción</li>
+                              <li>Antigua Guatemala</li>
+                              <li>Zona 3 Xela</li>
+                              <li>Pradera Chiquimula</li>
+                            </ul>
 
                     </div>
                     <div class="col-md-4 col-sm-4 alert-success">
-                            <h4><i class="fa fa-microphone fa-2x" ></i>&nbsp;Our Values</h4>
+                            <h4><i class="fa fa-pencil fa-2x" ></i>&nbsp; Nuestra Misión </h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                              Brindar productos de alta calidad y atención personalizada a cada uno de nuestros invitados a
+                              fin de lograr la fidelidad de ellos, con un equipo altamente motivado y capacitado, contribuyendo
+                              al desarrollo del país y de nuestros colaboradores.
                             </p>
 
                     </div>
 
                     <div class="col-md-4 col-sm-4 alert-danger">
-                            <h4><i class="fa fa-pencil fa-2x" ></i>&nbsp; Our Mission </h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-
+                            <h4><i class="fa fa-microphone fa-2x" ></i>&nbsp;Nuestros Valores</h4>
+                            <ol>
+                              <li>Brindar un ambiente de trabajo basado en el respeto y la dignidad.</li>
+                              <li>Aumentar el número de clientes satisfechos todo el tiempo.</li>
+                              <li>Contribuir positivamente al medio ambiente.</li>
+                            </ol>
                     </div>
                 </div>
-                  </div>
+              </div>
 
 
         </div>
     </section>
 
-    <section  >
+    <section  method="post" enctype="multipart/form-data">
         <div class="container">
 
             <div class="row g-pad-bottom">
                 <div class="col-md-6 ">
-                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <h2>El Restaurante:</h2>
 
                     <p>
-                         <strong> Address: </strong> &nbsp;Newyork City, Your Country, Pin-000000.
-                        <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                         Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                        De un viaje a Quetzaltenango, cuna de la cultura y del innovador concepto culinario italiano con influencias chapinas,
+                        se realiza un sueño: BLISS Italian Pizza! El concepto conquista el corazón y el paladar quetzalteco con exquisitos platos
+                        preparados en una cocina en exhibición. Los ingredientes? Frescos alimentos y bebidas preparados en casa por chefs y bartenders
+                        profesionales, ofrecidos por medio de generosas porciones que deleitan los sentidos. Las instrucciones? Impecable atención al cliente,
+                        un diseño atractivo, limpio y moderno y personal bien capacitado–Todo con una sola meta en mente: atender y complacer a nuestros comensales!
+
+                        Nuestro mantra es “Disfrutando Nuestro Trabajo” transmitiendo a todos los empleados y personal de cocina y servicio el lema de trabajar con amor,
+                        pasión, dedicación y ejemplo, enamorando así a nuestros clientes–el corazón y alma de nuestros restaurantes.
                     </p>
-                    <form>
+                    <form method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="row">
+                          <div class="col-md-10 ">
+                              <div class="form-group">
+                                  <h3>¿Le gustan mucho nuestros productos?</h3>
+                              </div>
+                          </div>
+                      </div>
                         <div class="row">
                             <div class="col-md-6 ">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Name">
+                                    <input type="text" class="form-control" required="required" placeholder="Name" name="nombre">
                                 </div>
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Email address">
+                                    {{form.errors}}
+                                    <input type="text" class="form-control" required="required" placeholder="Email address" name="correo">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 ">
                                 <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Submit Request</button>
+                                    <button type="submit" class="btn btn-danger">Suscribase</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-6">
-                   <iframe class="cnt" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999841.293321206!2d-75.80920404999999!3d42.75594204999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew+York!5e0!3m2!1sen!2s!4v1395313088825" s ></iframe>
-                </div>
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3856.649906257215!2d-91.52556068587766!3d14.844893989647302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDUwJzQxLjYiTiA5McKwMzEnMjQuMSJX!5e0!3m2!1ses-419!2sgt!4v1478765865961" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
             </div>
         </div>
     </section>
@@ -148,9 +165,7 @@
 
 
     <!--FOOTER SECTION -->
-    <div id="footer">
-        2014 www.yourdomain.com | All Right Reserved
-
+    <div id="footer" class="copyright"><span class="brand">Restaurante </span> &copy; <span id="copyright-year"></span> |  <div>Website designed by Kevin y Alexander</div>
     </div>
     <!-- END FOOTER SECTION -->
 

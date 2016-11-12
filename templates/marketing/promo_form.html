@@ -1,9 +1,150 @@
-{% block title%}Nueva Promoción{% endblock %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nueva Promoción</title>
+  <meta name = "format-detection" content = "telephone=no" />
+  <link rel="icon" href=" {% static 'images/favicon.ico' %}">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
+  <link rel="stylesheet" href="{% static 'css/stuck.css'%}">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/touchTouch.css'%}">
+  <script src="{% static 'js/jquery.js'%}"></script>
+  <script src="{% static 'js/jquery-migrate-1.1.1.js'%}"></script>
+  <script src="{% static 'js/script.js'%}"></script>
+  <script src="{% static 'js/superfish.js'%}"></script>
+  <script src="{% static 'js/jquery.equalheights.js'%}"></script>
+  <script src="{% static 'js/jquery.mobilemenu.js'%}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js'%}"></script>
+  <script src="{% static 'js/tmStickUp.js'%}"></script>
+  <script src="{% static 'js/jquery.ui.totop.js'%}"></script>
+  <script src="{% static 'js/touchTouch.jquery.js'%}"></script>
 
-{% block content %}
+  <script>
+   $(document).ready(function(){
+
+    $().UItoTop({ easingType: 'easeOutQuart' });
+    $('#stuck_container').tmStickUp({});
+    $('.gallery .gall_item').touchTouch();
+
+    });
+  </script>
+  <style>
+  table {
+    width: 50%;
+  }
+
+  td {
+    text-align: center;
+    color: black;
+    padding: 8px;
+    vertical-align: middle;
+  }
+
+  tr:nth-child(even){background-color: #E8D9F7}
+
+  .btn {
+    background-color: #663399;
+    border: none;
+    color: white;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  body{
+    background-color: white;
+  }
+  .dk{
+    text-align: left;
+    padding: 8px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+  <!--==============================
+              Stuck menu
+  =================================-->
+    <section id="stuck_container">
+      <div class="container">
+        <div class="row">
+          <div class="grid_12">
+          <h1>
+            <a href="{%url 'promocion:index'%}" alt="Logo alt">
+              <img src="{%static 'images/logo.png'%}">
+            </a>
+          </h1>
+          <div class="navigation">
+            <nav>
+              <ul class="sf-menu">
+                <li><a href="{%url 'promocion:index'%}">Inicio</a></li>
+                <li class="dropdown" style="width:70px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Listar<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{%url 'promocion:menu'%}">Menu</a></li>
+                    <li><a href="{%url 'promocion:promo'%}">Promociones</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown" style="width:100px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Operaciones<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{%url 'promocion:crear_promocion'%}">Crear promoción</a></li>
+                    <li><a href="{%url 'promocion:receta_listar'%}">Imagenes recetas</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url 'logout' %}">Salir</a></li>
+              </ul>
+            </nav>
+            <div class="clear"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <br>
 <form enctype="multipart/form-data" method="post">
   {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" name="save">Guardar</button>
+  <center>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>{{ form.nombre.label }}:</td>
+          <td class="dk">{{ form.nombre }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.precio.label }}:</td>
+          <td class="dk">{{ form.precio }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.descuento.label }}:</td>
+          <td class="dk">{{ form.descuento }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.imagen.label }}:</td>
+          <td class="dk">{{ form.imagen }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.productos.label }}:</td>
+          <td class="dk">{{ form.productos }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.descripcion.label }}:</td>
+          <td class="dk">{{ form.descripcion }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <button class = "btn btn-primary" type="submit" name="button">Guardar</button>
+        </div>
+      </div>
+  </center>
 </form>
-{% endblock content %}
+</body>
+</html>

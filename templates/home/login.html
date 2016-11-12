@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="{% static 'css/style1.css' %}" rel="stylesheet" />
+  <style>
+  .login {
+    background-color: #BFF2BF;
+    width: 250px;
+    padding: 30px;
+    border: 15px solid #4169E1;
+    text-align:center;
+    position: absolute;
+    top: 15%;
+  }
+  .button {
+    background-color: #663399;
+    border: none;
+    color: white;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  </style>
+  <meta charset="utf-8">
+  <title>Login</title>
+</head>
+<body style="margin-left: 32rem;">
+  <div  class="login" >
+    <table class="table table-bordered">
+    <h1>Iniciar Sesión</h1>
+    <form method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+    <ul class='form-errors'>
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <input type="text" name="username" placeholder="Username" required="required" />
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <input type="password" name="password" placeholder="Password" required="required" />
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <button class="button">Entrar</button>
+        </div>
+      </div>
+    </form>
+
+    </table>
+  </div>
+</body>
+</html>
