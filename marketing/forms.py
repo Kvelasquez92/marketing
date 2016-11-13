@@ -19,4 +19,5 @@ class RecetaForm(forms.ModelForm):
         model = Receta
         fields = [
             'imagen',
+            'descripcion',
         ]

@@ -42,13 +42,16 @@
         <thead>
           <tr>
             <td>Imagen</td>
-            <td>Seleccionar Imagen</td>
+            <td>Descripción receta</td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><a href="{{ form.imagen.value.url }}"><img src="{{ form.imagen.value.url }}" style="width:150px;height:140px;"></a></td>
-            <td>{{ form.imagen }}</td>
+            <td>
+              <a href="{{ form.imagen.value.url }}"><img src="{{ form.imagen.value.url }}" style="width:150px;height:140px;"></a>
+              <p>{{ form.imagen }}</p>
+            </td>
+            <td>{{ form.descripcion }}</td>
           </tr>
         </tbody>
       </table>
