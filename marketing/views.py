@@ -76,6 +76,7 @@ class DetallePromocion(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetallePromocion, self).get_context_data(**kwargs)
+        context['real'] = context['object'].precio - context['object'].descuento
         context['promocion'] = Promocion.objects.exclude(id = context['object'].id)[:3]
         return context
 

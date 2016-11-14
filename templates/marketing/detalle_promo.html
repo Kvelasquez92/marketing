@@ -10,7 +10,10 @@
           <img src="{{object.imagen.url}}" alt="" class=" fleft" width="100px" height="150px">
           <div class="extra_wrapper">
           <div class="bq_title color1">Descripcion</div>
-       		{{object.descripcion}}
+          <div style="color:#101223"><p>{{object.descripcion}}</p>
+          <h5>Precio</h5>
+          {{real}}
+          </div>
           </div>
         
       </div>
@@ -23,7 +26,8 @@
           <div class="extra_wrapper">
             <div class="text1 color1">
               <a href="{% url 'promocion:detalle_promocion' promo.id%}">{{promo.nombre}}</a>
-            </div>{{promo.descripcion}}<a href="#" class="color1">[...]</a>
+              </div>
+              <div style="color:#101223">{{promo.descripcion}}<a href="#" class="color1">[...]</a></div>
           </div>
         </div>
         {% endfor%}
